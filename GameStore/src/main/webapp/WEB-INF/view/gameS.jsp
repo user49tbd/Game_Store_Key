@@ -44,8 +44,6 @@ body{
 #tbexb{
   color: white;
   table-layout: fixed ;
-  width: 50% ;
-  height: 100% ;
   border-right-width: 20px;
   background-color: rgba(0,0,149, 0.4);
   border-left-width: 20px;
@@ -92,6 +90,32 @@ body{
 	background-repeat: no-repeat;
   	background-attachment: fixed;
 }
+
+.child {
+  width: 250px;
+  height: 150px;
+  display: inline-block;
+  vertical-align: middle;
+  color: black;
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.child2 {
+  display: inline-block;
+  vertical-align: middle;
+}
+#divor{
+	width: 360px;
+    height: 262px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: rgba(0,0,149, 0.4);
+}
+
+
+
 </style>
 </head>
 <body>
@@ -100,6 +124,12 @@ body{
 <p id="title">GAME</p>
 </div>
 <br>
+
+
+<div class='parent' >
+
+<div class="child2">
+
 <div align="center">
 	<c:if test="${not empty game }">
 		<div class='parent'>
@@ -123,6 +153,7 @@ body{
 		</div>
 	</c:if>
 </div>
+
 <br>
 <form action="gameS" method="post">
 	<div align="center">
@@ -162,5 +193,48 @@ body{
 		</table>
 	</div>
 </c:if>
+
+</div>
+
+
+
+
+
+<div id="divor" class="child2">
+<c:if test="${empty errScrap }">
+	<c:if test="${not empty raspD }">
+		<label>METACRITIC</label>
+		<br/>
+		<label>METASCORE: <c:out value="${fullN}"></c:out></label>
+		<br/>
+		<table id="tbexb">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Nota</th>
+					<th>DESCRICAO</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${raspD}" var="av">
+					<tr>
+						<td><c:out value="${av.nome}"></c:out></td>
+						<td><c:out value="${av.nota}"></c:out></td>
+						<td><textarea id="desc" name="desc" rows="5" cols="20"><c:out value="${av.texto}"></c:out></textarea></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</c:if>
+</c:if>
+<c:if test="${not empty errScrap}">
+<label><c:out value="${errScrap}"></c:out></label>
+</c:if>
+</div>
+
+</div>
+
+
+
 </body>
 </html>
