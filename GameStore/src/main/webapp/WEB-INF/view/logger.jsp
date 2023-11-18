@@ -124,9 +124,9 @@ input:hover{
 		<c:if test="${op ne 'M' }">
 			<td><input type="text" id="ln" name="ln" placeholder="#Nome do usuario" required></td>
 			<td>
-			<select id="ltp" name="ltp">
-				<option value="P" selected>P</option>
-				<option value="J">J</option>
+			<select id="ltp" name="ltp" class="md">
+				<option value="P" selected>Publicadora</option>
+				<option value="J">Jogador</option>
 			</select>
 			</td>
 		</c:if>
@@ -161,6 +161,7 @@ input:hover{
 	</table>
 <br>
 </div>
+
 </form>
 </c:if>
 <br>

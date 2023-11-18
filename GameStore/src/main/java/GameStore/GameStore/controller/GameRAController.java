@@ -243,10 +243,10 @@ public class GameRAController {
 			driver.get(meta);
 			//driver.get("https://amazon.com.br");
 			//waitEv(5000);
-			waitEv(1050);
+			waitEv(1150);
 			WebElement inputP = driver.findElement(By.xpath("//*[@id=\"onetrust-close-btn-container\"]/button"));
 			inputP.click();
-			waitEv(150);
+			waitEv(250);
 			inputP = driver.findElement(By.xpath("//*[@id=\"__layout\"]/div/div[2]/div[1]/div[2]/div/div[2]/a[2]/div[1]"));
 			inputP.click();
 			
@@ -269,7 +269,7 @@ public class GameRAController {
 			//a[@class="c-siteReviewHeader_publicationName g-text-bold g-color-gray90"]
 			//span[@data-v-4cdca868=""]
 			
-			waitEv(600);
+			waitEv(700);
 			List<WebElement> nome = driver.findElements(By.xpath("//a[@class=\"c-siteReviewHeader_publicationName g-text-bold g-color-gray90\"]"));
 			List<WebElement> nota = driver.findElements(By.xpath("//span[@data-v-4cdca868=\"\"]"));
 			List<WebElement> critica = driver.findElements(By.xpath("//div[@class=\"c-siteReview_quote g-outer-spacing-bottom-small\"]/span"));
