@@ -105,6 +105,7 @@ body{
 .child2 {
   display: inline-block;
   vertical-align: middle;
+  vertical-align:top;
 }
 #divor{
 	width: 360px;

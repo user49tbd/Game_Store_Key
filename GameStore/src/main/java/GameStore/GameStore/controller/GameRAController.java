@@ -220,61 +220,40 @@ public class GameRAController {
 			options.addArguments("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36");
 			WebDriver driver = new EdgeDriver(options = options);
 			String val = gn;
-			//val.length();
-			
-			//String [] a = val.split("");
-			//a[val.length()];
 			val = val.replaceAll("^ +| +$|( )+", "$1");
-			val = val.replace(" ", "-");
-			/*	
-			String fval = "";
-			ArrayList<String> ar = new ArrayList<>();
-			ar.add(val.split(" ")[0]);
-			for(int i = 0;i <= val.split(" ").length;i++) {
-				fval.concat(val.split(val)[i-1]);
-				if(i < val.split(" ").length) {
-					fval.concat("-");
-				}
-			}
-			*/
+			val = val.replace(" ", "-").toLowerCase();
 			String meta = "https://www.metacritic.com/game/";
+			
 			meta = meta.concat(val);
-			meta = meta.concat("/");
+			meta = meta.concat("/critic-reviews/");
 			driver.get(meta);
-			//driver.get("https://amazon.com.br");
-			//waitEv(5000);
+			
+			
+			/////////
+			/*
 			waitEv(1150);
 			WebElement inputP = driver.findElement(By.xpath("//*[@id=\"onetrust-close-btn-container\"]/button"));
 			inputP.click();
 			waitEv(250);
 			inputP = driver.findElement(By.xpath("//*[@id=\"__layout\"]/div/div[2]/div[1]/div[2]/div/div[2]/a[2]/div[1]"));
 			inputP.click();
+			*/
+			/////////
 			
-			//inputP = driver.findElement(By.xpath("//*[@id=\"__layout\"]/div/div[2]/div[1]/div[1]/section/div[1]/div/div[2]/div/div/div/ul/li[2]/a"));
-			//inputP.click();
-			//---------
-			//waitEv(2500);
-			//inputP = driver.findElement(By.xpath("//*[@id=\"__layout\"]/div/div[2]/div[1]/div[1]/section/div[3]/div/div[2]/div[1]"));
-			//inputP.click();
-			//waitEv(2300);
-			//inputP = driver.findElement(By.xpath("//*[@id=\"__layout\"]/div/div[2]/div[1]/div[1]/section/div[3]/div/div[2]/div[2]/div[3]/span"));
-			//inputP.click();
-			//System.out.println(val);
-			
-			//*[@id="__layout"]/div/div[2]/div[1]/div[1]/section/div[6]/div[1]/div/div[1]/div[1]/a
-			//a[@class="c-siteReviewHeader_username g-text-bold g-color-gray90 "]
-			
-			//*[@id="__layout"]/div/div[2]/div[1]/div[1]/section/div[6]/div[1]/div/div[1]/div[1]/div[2]/a
-			
-			//a[@class="c-siteReviewHeader_publicationName g-text-bold g-color-gray90"]
-			//span[@data-v-4cdca868=""]
+			//*[@id="__layout"]/div/div[2]/div[1]/div[1]/section/div[1]/div/div[1]/div[1]/picture
+			//picture[@class="c-cmsImage c-cmsImage-loaded"]/img
 			
 			waitEv(700);
 			List<WebElement> nome = driver.findElements(By.xpath("//a[@class=\"c-siteReviewHeader_publicationName g-text-bold g-color-gray90\"]"));
 			List<WebElement> nota = driver.findElements(By.xpath("//span[@data-v-4cdca868=\"\"]"));
 			List<WebElement> critica = driver.findElements(By.xpath("//div[@class=\"c-siteReview_quote g-outer-spacing-bottom-small\"]/span"));
+			List<WebElement> img = driver.findElements(By.xpath("//*[@id=\"__layout\"]/div/div[2]/div[1]/div[1]/section/div[1]/div/div[1]/div[1]/picture/img"));
+			
+			//*[@id="__layout"]/div/div[2]/div[1]/div[1]/section/div[1]/div/div[1]/div[1]/picture/img
+			
 			
 			System.out.println("list = "+nome.get(0).toString());
+			System.out.println("img -> "+img.get(0).getAttribute("src"));
 			ArrayList<metaC> mc = new ArrayList<>();
 			for(int i = 0;i< nome.size();i++) {
 				metaC mtc = new metaC();
